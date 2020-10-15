@@ -363,7 +363,7 @@
         </div>
       </div>
       <div class="item" data-audio="audio8">
-        <audio src="Cacbancocamthaysoidong.mp3"></audio>
+        <audio src="Cacbancocamthaysoidong.mp3" onended="endedFunction(this)"></audio>
         <div class="thumb">
           <img src="Sapo-logo.jpg" />
           <button class="btn-play-pause">
@@ -450,6 +450,9 @@
         parent.addClass('playing');
       }
     });
+    function endedFunction(elem){
+      $(elem).parents('.item').removeClass('playing');
+    }
   </script>
 </body>
 </html>
