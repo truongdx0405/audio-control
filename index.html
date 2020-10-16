@@ -104,6 +104,12 @@
     }
     .list-control .item .control h3{
       font-family: Arial, Helvetica, sans-serif;
+      margin-bottom: 5px;
+    }
+    .list-control .item .control .tracktime{
+      font-family: Arial, Helvetica, sans-serif;
+      margin-bottom: 5px;
+      display: block;
     }
     .list-control .item .control .actions{
       display: flex;
@@ -178,6 +184,7 @@
         </div>
         <div class="control">
           <h3>Nhạc giới thiệu đại biểu</h3>
+          <span class="tracktime"><span class="currentTime">0</span>:<span class="duration"></span></span>
           <div class="actions">
             <button type="button" class="btn-stop">
               <i class="icon-stop"></i>
@@ -197,6 +204,7 @@
         </div>
         <div class="control">
           <h3>Nhạc game show 1</h3>
+          <span class="tracktime"><span class="currentTime">0</span>:<span class="duration"></span></span>
           <div class="actions">
             <button type="button" class="btn-stop">
               <i class="icon-stop"></i>
@@ -216,6 +224,7 @@
         </div>
         <div class="control">
           <h3>Nhạc game show 2</h3>
+          <span class="tracktime"><span class="currentTime">0</span>:<span class="duration"></span></span>
           <div class="actions">
             <button type="button" class="btn-stop">
               <i class="icon-stop"></i>
@@ -235,6 +244,7 @@
         </div>
         <div class="control">
           <h3>Nhạc hát</h3>
+          <span class="tracktime"><span class="currentTime">0</span>:<span class="duration"></span></span>
           <div class="actions">
             <button type="button" class="btn-stop">
               <i class="icon-stop"></i>
@@ -256,6 +266,7 @@
         </div>
         <div class="control">
           <h3>Nhạc nhảy</h3>
+          <span class="tracktime"><span class="currentTime">0</span>:<span class="duration"></span></span>
           <div class="actions">
             <button type="button" class="btn-stop">
               <i class="icon-stop"></i>
@@ -275,6 +286,7 @@
         </div>
         <div class="control">
           <h3>Vỗ tay</h3>
+          <span class="tracktime"><span class="currentTime">0</span>:<span class="duration"></span></span>
           <div class="actions">
             <button type="button" class="btn-stop">
               <i class="icon-stop"></i>
@@ -294,6 +306,7 @@
         </div>
         <div class="control">
           <h3>Vỗ tay - Reo hò</h3>
+          <span class="tracktime"><span class="currentTime">0</span>:<span class="duration"></span></span>
           <div class="actions">
             <button type="button" class="btn-stop">
               <i class="icon-stop"></i>
@@ -313,6 +326,7 @@
         </div>
         <div class="control">
           <h3>Các bạn có cảm thấy sôi động</h3>
+          <span class="tracktime"><span class="currentTime">0</span>:<span class="duration"></span></span>
           <div class="actions">
             <button type="button" class="btn-stop">
               <i class="icon-stop"></i>
@@ -423,6 +437,16 @@
         $('[data-audio="audio8"]').find('.btn-play-pause').trigger('click');
         break;
       }
+    });
+    $('.item').each(function(){
+      var $this = $(this);
+      var audio = $this.find('audio')[0];
+      $(audio).on("loadedmetadata", function(){
+        $this.find('.tracktime .duration').text(Math.floor(audio.duration));
+      });
+      $(audio).on("timeupdate", function(){
+        $this.find('.tracktime .currentTime').text(Math.floor(audio.currentTime));
+      });
     });
     function endedFunction(elem){
       $(elem).parents('.item').removeClass('playing');
