@@ -9,20 +9,9 @@
       margin: 0;
       padding: 0;
       height: 100vh;
-      background: url(bg.jpg) no-repeat center center;
-      background-size: auto;
+      background: #fff;
       position: relative;
       overflow: hidden;
-    }
-    .overlay{
-      background: #ffffff;
-      opacity: 0.7;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: 1;
     }
     .list-control{
       position: relative;
@@ -36,6 +25,8 @@
     .list-control .item{
       margin: 30px 30px 0;
       text-align: center;
+      padding: 15px;
+      box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
     }
     .list-control .item audio{
       display: none;
@@ -47,16 +38,17 @@
       width: 280px;
       height: 280px;
       border-radius: 50%;
+      vertical-align: top;
     }
     .list-control .item .thumb .btn-play-pause{
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translateX(-50%) translateY(-50%);
-      width: 80px;
-      height: 80px;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
       border: none;
-      border-radius: 50%;
       overflow: hidden;
       background: transparent;
       outline: none;
@@ -64,14 +56,16 @@
     }
     .list-control .item .thumb .btn-play-pause:before{
       content: "";
-      background-image: -webkit-linear-gradient(0deg,rgb(161 94 243 / 1) 8%,rgb(94 118 235 / 1) 89%);
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      width: 89px;
+      height: 89px;
       z-index: 1;
-      opacity: .7;
+      background: #9cc3d2;
+      opacity: .2;
+      border-radius: 50%;
     }
     .list-control .item .btn-play-pause .icon-pause{
       display: none;
@@ -116,36 +110,13 @@
       justify-content: center;
       align-items: center;
     }
-    .list-control .item .control .actions button{
-      margin: 0 5px;
-    }
-    .list-control .item .control .actions .btn-play, .list-control .item .control .actions .btn-stop{
+    .list-control .item .control .actions .btn-stop{
       background-image: -webkit-linear-gradient(0deg,#00b0e5 8%,#0078fb 89%);
       border: none;
       outline: none;
       cursor: pointer;
       padding: 5px;
-    }
-    .list-control .item .control .actions .btn-play .icon-play{
-      display: none;
-    }
-    .list-control .item .control .actions .btn-play .icon-play,
-    .list-control .item .control .actions .btn-play .icon-pause{
-      width: 15px;
-      height: 15px;
-      background: url(play-button-arrowhead.svg) no-repeat center center;
-      background-size: 100% auto;
-      z-index: 2;
-    }
-    .list-control .item .control .actions .btn-play .icon-pause{
-      background: url(pause-symbol.svg) no-repeat center center;
-      background-size: 100% auto;
-    }
-    .list-control .item .control .actions .btn-play .icon-pause{
-      display: none;
-    }
-    .list-control .item .control .actions .btn-play .icon-play{
-      display: block;
+      margin-right: 10px;
     }
     .list-control .item .control .actions .btn-stop .icon-stop{
       width: 15px;
@@ -158,15 +129,13 @@
       position:relative;
       cursor:pointer;
       width:100%;
-      height:10px;
-      margin-top:10px;
-      background-color:#fff;
-      border-radius: 10px;
+      height:25px;
+      background-color:#656565;
       overflow: hidden;
     }
     .volumeBar {
       display:block;
-      height: 10px;
+      height: 25px;
       position:absolute;
       top:0;
       left:0;
@@ -196,13 +165,12 @@
   </style>
 </head>
 <body>
-  <div class="overlay"></div>
   <div class="list-control">
     <div class="row">
       <div class="item" data-audio="audio1">
         <audio src="Gioithieudaibieu.mp3"></audio>
         <div class="thumb">
-          <img src="Sapo-logo.jpg" />
+          <img src="disc.png" />
           <button class="btn-play-pause">
             <i class="icon-play"></i>
             <i class="icon-pause"></i>
@@ -211,21 +179,17 @@
         <div class="control">
           <h3>Nhạc giới thiệu đại biểu</h3>
           <div class="actions">
-            <button type="button" class="btn-play">
-              <i class="icon-play"></i>
-              <i class="icon-pause"></i>
-            </button>
             <button type="button" class="btn-stop">
               <i class="icon-stop"></i>
             </button>
+            <div class="volume" title="Set volume">	<span class="volumeBar"></span></div>
           </div>
-          <div class="volume" title="Set volume">	<span class="volumeBar"></span></div>
         </div>
       </div>
       <div class="item" data-audio="audio2">
         <audio src="Nhacgameshow1.mp3"></audio>
         <div class="thumb">
-          <img src="Sapo-logo.jpg" />
+          <img src="disc.png" />
           <button class="btn-play-pause">
             <i class="icon-play"></i>
             <i class="icon-pause"></i>
@@ -234,21 +198,17 @@
         <div class="control">
           <h3>Nhạc game show 1</h3>
           <div class="actions">
-            <button type="button" class="btn-play">
-              <i class="icon-play"></i>
-              <i class="icon-pause"></i>
-            </button>
             <button type="button" class="btn-stop">
               <i class="icon-stop"></i>
             </button>
+            <div class="volume" title="Set volume">	<span class="volumeBar"></span></div>
           </div>
-          <div class="volume" title="Set volume">	<span class="volumeBar"></span></div>
         </div>
       </div>
       <div class="item" data-audio="audio3">
         <audio src="Nhacgameshow2.mp3"></audio>
         <div class="thumb">
-          <img src="Sapo-logo.jpg" />
+          <img src="disc.png" />
           <button class="btn-play-pause">
             <i class="icon-play"></i>
             <i class="icon-pause"></i>
@@ -257,21 +217,17 @@
         <div class="control">
           <h3>Nhạc game show 2</h3>
           <div class="actions">
-            <button type="button" class="btn-play">
-              <i class="icon-play"></i>
-              <i class="icon-pause"></i>
-            </button>
             <button type="button" class="btn-stop">
               <i class="icon-stop"></i>
             </button>
+            <div class="volume" title="Set volume">	<span class="volumeBar"></span></div>
           </div>
-          <div class="volume" title="Set volume">	<span class="volumeBar"></span></div>
         </div>
       </div>
       <div class="item" data-audio="audio4">
         <audio src="Nhachat.mp3"></audio>
         <div class="thumb">
-          <img src="Sapo-logo.jpg" />
+          <img src="disc.png" />
           <button class="btn-play-pause">
             <i class="icon-play"></i>
             <i class="icon-pause"></i>
@@ -280,15 +236,11 @@
         <div class="control">
           <h3>Nhạc hát</h3>
           <div class="actions">
-            <button type="button" class="btn-play">
-              <i class="icon-play"></i>
-              <i class="icon-pause"></i>
-            </button>
             <button type="button" class="btn-stop">
               <i class="icon-stop"></i>
             </button>
+            <div class="volume" title="Set volume">	<span class="volumeBar"></span></div>
           </div>
-          <div class="volume" title="Set volume">	<span class="volumeBar"></span></div>
         </div>
       </div>
     </div>
@@ -296,7 +248,7 @@
       <div class="item" data-audio="audio5">
         <audio src="Nhacnhay.mp3"></audio>
         <div class="thumb">
-          <img src="Sapo-logo.jpg" />
+          <img src="disc.png" />
           <button class="btn-play-pause">
             <i class="icon-play"></i>
             <i class="icon-pause"></i>
@@ -305,21 +257,17 @@
         <div class="control">
           <h3>Nhạc nhảy</h3>
           <div class="actions">
-            <button type="button" class="btn-play">
-              <i class="icon-play"></i>
-              <i class="icon-pause"></i>
-            </button>
             <button type="button" class="btn-stop">
               <i class="icon-stop"></i>
             </button>
+            <div class="volume" title="Set volume">	<span class="volumeBar"></span></div>
           </div>
-          <div class="volume" title="Set volume">	<span class="volumeBar"></span></div>
         </div>
       </div>
       <div class="item" data-audio="audio6">
         <audio src="Votay.mp3"></audio>
         <div class="thumb">
-          <img src="Sapo-logo.jpg" />
+          <img src="disc.png" />
           <button class="btn-play-pause">
             <i class="icon-play"></i>
             <i class="icon-pause"></i>
@@ -328,21 +276,17 @@
         <div class="control">
           <h3>Vỗ tay</h3>
           <div class="actions">
-            <button type="button" class="btn-play">
-              <i class="icon-play"></i>
-              <i class="icon-pause"></i>
-            </button>
             <button type="button" class="btn-stop">
               <i class="icon-stop"></i>
             </button>
+            <div class="volume" title="Set volume">	<span class="volumeBar"></span></div>
           </div>
-          <div class="volume" title="Set volume">	<span class="volumeBar"></span></div>
         </div>
       </div>
       <div class="item" data-audio="audio7">
         <audio src="Votayreoho.mp3"></audio>
         <div class="thumb">
-          <img src="Sapo-logo.jpg" />
+          <img src="disc.png" />
           <button class="btn-play-pause">
             <i class="icon-play"></i>
             <i class="icon-pause"></i>
@@ -351,21 +295,17 @@
         <div class="control">
           <h3>Vỗ tay - Reo hò</h3>
           <div class="actions">
-            <button type="button" class="btn-play">
-              <i class="icon-play"></i>
-              <i class="icon-pause"></i>
-            </button>
             <button type="button" class="btn-stop">
               <i class="icon-stop"></i>
             </button>
+            <div class="volume" title="Set volume">	<span class="volumeBar"></span></div>
           </div>
-          <div class="volume" title="Set volume">	<span class="volumeBar"></span></div>
         </div>
       </div>
       <div class="item" data-audio="audio8">
         <audio src="Cacbancocamthaysoidong.mp3" onended="endedFunction(this)"></audio>
         <div class="thumb">
-          <img src="Sapo-logo.jpg" />
+          <img src="disc.png" />
           <button class="btn-play-pause">
             <i class="icon-play"></i>
             <i class="icon-pause"></i>
@@ -374,15 +314,11 @@
         <div class="control">
           <h3>Các bạn có cảm thấy sôi động</h3>
           <div class="actions">
-            <button type="button" class="btn-play">
-              <i class="icon-play"></i>
-              <i class="icon-pause"></i>
-            </button>
             <button type="button" class="btn-stop">
               <i class="icon-stop"></i>
             </button>
+            <div class="volume" title="Set volume">	<span class="volumeBar"></span></div>
           </div>
-          <div class="volume" title="Set volume">	<span class="volumeBar"></span></div>
         </div>
       </div>
     </div>
@@ -396,6 +332,15 @@
         audio6 = $('[data-audio="audio6"] audio')[0],
         audio7 = $('[data-audio="audio7"] audio')[0],
         audio8 = $('[data-audio="audio8"] audio')[0];
+    
+    $('.btn-stop').on('click', function(){
+      var parent = $(this).parents('.item'),
+        audioCurrent = parent.data('audio');
+        window[audioCurrent].pause();
+        window[audioCurrent].currentTime = 0;
+        parent.removeClass('playing');
+    });
+
     var volumeDrag = false;
     $('.volume').on('mousedown', function (e) {
       var audioCurent = $(this).parents('.item').data('audio');
@@ -448,6 +393,35 @@
       }else{
         window[audioCurent].play();
         parent.addClass('playing');
+      }
+    });
+    $(window).on('keyup', function(e){
+      var key = e.keyCode;
+      switch(key){
+        case 49:
+        $('[data-audio="audio1"]').find('.btn-play-pause').trigger('click');
+        break;
+        case 50:
+        $('[data-audio="audio2"]').find('.btn-play-pause').trigger('click');
+        break;
+        case 51:
+        $('[data-audio="audio3"]').find('.btn-play-pause').trigger('click');
+        break;
+        case 52:
+        $('[data-audio="audio4"]').find('.btn-play-pause').trigger('click');
+        break;
+        case 53:
+        $('[data-audio="audio5"]').find('.btn-play-pause').trigger('click');
+        break;
+        case 54:
+        $('[data-audio="audio6"]').find('.btn-play-pause').trigger('click');
+        break;
+        case 55:
+        $('[data-audio="audio7"]').find('.btn-play-pause').trigger('click');
+        break;
+        case 56:
+        $('[data-audio="audio8"]').find('.btn-play-pause').trigger('click');
+        break;
       }
     });
     function endedFunction(elem){
