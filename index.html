@@ -363,17 +363,6 @@
         $('.sound').removeClass('muted');
         updateVolume($(this).parents('.item'), e.pageX);
     });
-    $('.volume').on('mouseup', function (e) {
-        if (volumeDrag) {
-          volumeDrag = false;
-          updateVolume($(this).parents('.item'), e.pageX);
-        }
-    });
-    $('.volume').on('mousemove', function (e) {
-        if (volumeDrag) {
-          updateVolume($(this).parents('.item'), e.pageX);
-        }
-    });
     var updateVolume = function (elem, x, vol) {
       var audioCurent = $(elem).data('audio');
       var volume = $(elem).find('.volume');
