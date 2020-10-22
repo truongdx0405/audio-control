@@ -174,7 +174,7 @@
   <div class="list-control">
     <div class="row">
       <div class="item" data-audio="audio1">
-        <audio src="Nhacbatdauvaketthuc.mp3" onended="endedFunction(this)"></audio>
+        <audio src="Nhacbatdauvaketthuc.mp3" onended="endedFunction(this)" loop></audio>
         <div class="thumb">
           <img src="disc.png" />
           <button class="btn-play-pause">
@@ -339,7 +339,6 @@
       var audioCurent = $(this).parents('.item').data('audio');
         volumeDrag = true;
         window[audioCurent].muted = false;
-        $('.sound').removeClass('muted');
         updateVolume($(this).parents('.item'), e.pageX);
     });
     var updateVolume = function (elem, x, vol) {
