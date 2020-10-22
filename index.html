@@ -174,7 +174,7 @@
   <div class="list-control">
     <div class="row">
       <div class="item" data-audio="audio1">
-        <audio src="Gioithieudaibieu.mp3"></audio>
+        <audio src="Nhacbatdauvaketthuc.mp3" onended="endedFunction(this)"></audio>
         <div class="thumb">
           <img src="disc.png" />
           <button class="btn-play-pause">
@@ -183,7 +183,7 @@
           </button>
         </div>
         <div class="control">
-          <h3>Nhạc giới thiệu đại biểu</h3>
+          <h3>Nhạc nhẹ bắt đầu và kết thúc</h3>
           <span class="tracktime"><span class="currentTime">0</span>:<span class="duration"></span></span>
           <div class="actions">
             <button type="button" class="btn-stop">
@@ -194,7 +194,7 @@
         </div>
       </div>
       <div class="item" data-audio="audio2">
-        <audio src="Ailatrieuphu.mp3"></audio>
+        <audio src="Ailatrieuphu.mp3" onended="endedFunction(this)"></audio>
         <div class="thumb">
           <img src="disc.png" />
           <button class="btn-play-pause">
@@ -214,7 +214,7 @@
         </div>
       </div>
       <div class="item" data-audio="audio3">
-        <audio src="Nhachat.mp3"></audio>
+        <audio src="Nhachat.mp3" onended="endedFunction(this)"></audio>
         <div class="thumb">
           <img src="disc.png" />
           <button class="btn-play-pause">
@@ -234,7 +234,7 @@
         </div>
       </div>
       <div class="item" data-audio="audio4">
-        <audio src="Nhacnhay.mp3"></audio>
+        <audio src="Nhacnhay.mp3" onended="endedFunction(this)"></audio>
         <div class="thumb">
           <img src="disc.png" />
           <button class="btn-play-pause">
@@ -256,27 +256,7 @@
     </div>
     <div class="row">
       <div class="item" data-audio="audio5">
-        <audio src="Nhacketthucchuongtrinh1.mp3"></audio>
-        <div class="thumb">
-          <img src="disc.png" />
-          <button class="btn-play-pause">
-            <i class="icon-play"></i>
-            <i class="icon-pause"></i>
-          </button>
-        </div>
-        <div class="control">
-          <h3>Nhạc game show 2</h3>
-          <span class="tracktime"><span class="currentTime">0</span>:<span class="duration"></span></span>
-          <div class="actions">
-            <button type="button" class="btn-stop">
-              <i class="icon-stop"></i>
-            </button>
-            <div class="volume" title="Set volume">	<span class="volumeBar"></span></div>
-          </div>
-        </div>
-      </div>
-      <div class="item" data-audio="audio6">
-        <audio src="Votay.mp3"></audio>
+        <audio src="Votay.mp3" onended="endedFunction(this)"></audio>
         <div class="thumb">
           <img src="disc.png" />
           <button class="btn-play-pause">
@@ -295,8 +275,8 @@
           </div>
         </div>
       </div>
-      <div class="item" data-audio="audio7">
-        <audio src="Votayreoho.mp3"></audio>
+      <div class="item" data-audio="audio6">
+        <audio src="Votayreoho.mp3" onended="endedFunction(this)"></audio>
         <div class="thumb">
           <img src="disc.png" />
           <button class="btn-play-pause">
@@ -315,7 +295,7 @@
           </div>
         </div>
       </div>
-      <div class="item" data-audio="audio8">
+      <div class="item" data-audio="audio7">
         <audio src="Cacbancocamthaysoidong.mp3" onended="endedFunction(this)"></audio>
         <div class="thumb">
           <img src="disc.png" />
@@ -344,8 +324,7 @@
         audio4 = $('[data-audio="audio4"] audio')[0],
         audio5 = $('[data-audio="audio5"] audio')[0],
         audio6 = $('[data-audio="audio6"] audio')[0],
-        audio7 = $('[data-audio="audio7"] audio')[0],
-        audio8 = $('[data-audio="audio8"] audio')[0];
+        audio7 = $('[data-audio="audio7"] audio')[0];
     
     $('.btn-stop').on('click', function(){
       var parent = $(this).parents('.item'),
@@ -421,9 +400,6 @@
         break;
         case 55:
         $('[data-audio="audio7"]').find('.btn-play-pause').trigger('click');
-        break;
-        case 56:
-        $('[data-audio="audio8"]').find('.btn-play-pause').trigger('click');
         break;
       }
     });
