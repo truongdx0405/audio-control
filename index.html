@@ -234,7 +234,7 @@
         </div>
       </div>
       <div class="item" data-audio="audio4">
-        <audio src="Nhacnhay.mp3" onended="endedFunction(this)"></audio>
+        <audio src="Nhacnhay-cd7.mp3" onended="endedFunction(this)"></audio>
         <div class="thumb">
           <img src="disc.png" />
           <button class="btn-play-pause">
@@ -256,6 +256,26 @@
     </div>
     <div class="row">
       <div class="item" data-audio="audio5">
+        <audio src="FlyMeToTheMoon2Tone.mp3" onended="endedFunction(this)"></audio>
+        <div class="thumb">
+          <img src="disc.png" />
+          <button class="btn-play-pause">
+            <i class="icon-play"></i>
+            <i class="icon-pause"></i>
+          </button>
+        </div>
+        <div class="control">
+          <h3>Nhạc hát (Backup)</h3>
+          <span class="tracktime"><span class="currentTime">0</span>:<span class="duration"></span></span>
+          <div class="actions">
+            <button type="button" class="btn-stop">
+              <i class="icon-stop"></i>
+            </button>
+            <div class="volume" title="Set volume">	<span class="volumeBar"></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="item" data-audio="audio6">
         <audio src="Votay.mp3" onended="endedFunction(this)"></audio>
         <div class="thumb">
           <img src="disc.png" />
@@ -275,7 +295,7 @@
           </div>
         </div>
       </div>
-      <div class="item" data-audio="audio6">
+      <div class="item" data-audio="audio7">
         <audio src="Votayreoho.mp3" onended="endedFunction(this)"></audio>
         <div class="thumb">
           <img src="disc.png" />
@@ -295,7 +315,7 @@
           </div>
         </div>
       </div>
-      <div class="item" data-audio="audio7">
+      <div class="item" data-audio="audio8">
         <audio src="Cacbancocamthaysoidong.mp3" onended="endedFunction(this)"></audio>
         <div class="thumb">
           <img src="disc.png" />
@@ -324,7 +344,8 @@
         audio4 = $('[data-audio="audio4"] audio')[0],
         audio5 = $('[data-audio="audio5"] audio')[0],
         audio6 = $('[data-audio="audio6"] audio')[0],
-        audio7 = $('[data-audio="audio7"] audio')[0];
+        audio7 = $('[data-audio="audio7"] audio')[0],
+        audio8 = $('[data-audio="audio8"] audio')[0];
     
     $('.btn-stop').on('click', function(){
       var parent = $(this).parents('.item'),
@@ -399,6 +420,9 @@
         break;
         case 55:
         $('[data-audio="audio7"]').find('.btn-play-pause').trigger('click');
+        break;
+        case 56:
+        $('[data-audio="audio8"]').find('.btn-play-pause').trigger('click');
         break;
       }
     });
